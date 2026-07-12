@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>WhatsApp Web</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#005e54">
+<link rel="icon" href="https://minio-production-1fc3.up.railway.app/typebot/public/workspaces/cmfagbg830000ls4iz9r009n3/typebots/x1is357w46fqjn4bsifsvnv5/favIcon?v=1758253781295">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1229394738291910'); // Seu Pixel
+fbq('track', 'PageView');
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{font-family:'Open Sans',sans-serif;font-size:14.5px;background:#ede8e2;min-height:100vh;overscroll-behavior:none;}
+.user-bar{width:100%;height:55px;background:#005e54;color:#fff;position:fixed;top:0;left:0;right:0;z-index:99999;display:flex;align-items:center;padding:0 6px 0 4px;max-width:520px;left:50%;transform:translateX(-50%);}
+.user-bar .back a{color:#fff;text-decoration:none;display:flex;align-items:center;padding:8px 4px;}
+.user-bar .avatar{width:36px;height:36px;margin:0 8px 0 2px;flex-shrink:0;}
+.user-bar .avatar img{border-radius:50%;width:100%;height:100%;object-fit:cover;display:block;}
+.user-bar .name{flex:1;overflow:hidden;}
+.user-bar .name .nameline{display:flex;align-items:center;gap:4px;font-size:17px;font-weight:600;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.user-bar .status{display:block;font-size:13px;font-weight:400;}
+.chat-bg{position:fixed;inset:0;background-image:url('https://s3.fr-par.scw.cloud/typebot/public/typebots/cli88mae30010mh0f0yzjqn48/background?v=1685470080750');background-size:initial;background-repeat:repeat-x;background-color:#ede8e2;z-index:0;}
+#app{position:relative;z-index:1;max-width:520px;margin:0 auto;min-height:100vh;padding-top:65px;padding-bottom:115px;display:flex;flex-direction:column;}
+.hoje{position:fixed;z-index:994;text-align:center;width:50px;top:60px;left:calc(50% - 25px);background-color:#ede8e2;border-radius:10px;font-size:12px;font-weight:800;box-shadow:0px 1px #c6beb7;pointer-events:none;}
+#chat{flex:1;padding:30px 10px 10px;display:flex;flex-direction:column;gap:3px;}
+.msg-row{display:flex;align-items:flex-end;gap:6px;margin-bottom:3px;max-width:88%;}
+.msg-row.bot{align-self:flex-start;}
+.msg-row.user{align-self:flex-end;flex-direction:row-reverse;}
+.bot-avatar{width:30px;height:30px;flex-shrink:0;border-radius:50%;overflow:hidden;align-self:flex-end;}
+.bot-avatar img{width:100%;height:100%;display:block;}
+.typebot-host-bubble{position:relative;background:#fff;color:#303235;border-radius:12px 12px 12px 0;padding:8px 12px 22px;box-shadow:0 1px 1px rgba(0,0,0,.13);font-size:14.5px;animation:fadeIn .25s ease;}
+.typebot-host-bubble::after{position:absolute;content:"";width:0;height:0;border-style:solid;border-width:0px 10px 10px 0;border-color:transparent #fff transparent transparent;bottom:0;left:-9px;transform:scaleY(-1);}
+.typebot-guest-bubble{position:relative;background:#e1ffc7;color:#303235;border-radius:12px 12px 0 12px;padding:8px 52px 19px 12px;min-width:70px;box-shadow:0 1px 1px rgba(0,0,0,.13);animation:fadeIn .25s ease;}
+.typebot-guest-bubble::after{position:absolute;content:"";width:0;height:0;border-style:solid;border-width:0px 0 10px 10px;border-color:transparent transparent transparent #e1ffc7;bottom:0;right:-9px;transform:scaleY(-1);}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.hora, .hora2{position:absolute;bottom:0px;font-size:11px;color:grey;}
+.hora{right:10px;} .hora2{right:26px;}
+.typing-bubble{background:#fff;border-radius:12px 12px 12px 0;padding:10px 14px;display:inline-flex;gap:4px;box-shadow:0 1px 1px rgba(0,0,0,.13);position:relative;}
+.typing-bubble span{width:7px;height:7px;border-radius:50%;background:#aaa;animation:bounce .9s infinite;}
+@keyframes bounce{0%,80%,100%{transform:scale(1);opacity:.5}40%{transform:scale(1.25);opacity:1}}
+.img-host{border-radius:8px;overflow:hidden;max-width:280px;box-shadow:0 1px 1px rgba(0,0,0,.13);background:#fff;padding:4px;}
+.img-host img{width:100%;border-radius:4px;display:block;}
+.audio-host{background:#fff;border-radius:12px 12px 12px 0;padding:8px 12px 6px 8px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 1px rgba(0,0,0,.13);width:265px;position:relative;}
+.play-btn{width:36px;height:36px;border-radius:50%;background:#00a884;border:none;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;}
+.play-btn svg{width:18px;fill:#fff;}
+.audio-bar{flex:1;height:3px;background:#e0e3e5;position:relative;margin:0 10px;}
+.audio-fill{position:absolute;height:100%;background:#00a884;width:0%;}
+.choices{display:flex;flex-direction:column;gap:8px;margin-top:10px;align-self:flex-end;width:85%;}
+.choice-btn{background:#128C7E;border:none;border-radius:10px;color:#fff;padding:14px;font-size:14.5px;font-weight:600;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.18);}
+.input-area{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:520px;background:#ede8e2;padding:15px;display:flex;gap:8px;z-index:9999;}
+.input-box{flex:1;height:45px;border-radius:22px;border:none;padding:0 20px;outline:none;box-shadow:0 1px 2px rgba(0,0,0,0.1);}
+.send-btn{width:45px;height:45px;border-radius:50%;background:#128C7E;border:none;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<div class="user-bar">
+  <div class="back"><a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg></a></div>
+  <div class="avatar"><img src="https://minio-production-1fc3.up.railway.app/typebot/public/workspaces/cmfagbg830000ls4iz9r009n3/typebots/x1is357w46fqjn4bsifsvnv5/hostAvatar?v=1777254747316"></div>
+  <div class="name">
+    <div class="nameline">Serena Mística <svg viewBox="0 0 18 18" height="16" width="16"><polygon fill="#00DA60" points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9"></polygon><polygon fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4"></polygon></svg></div>
+    <span class="status" id="statusText">online</span>
+  </div>
+</div>
+
+<div class="chat-bg"></div>
+
+<div id="app">
+  <div class="hoje">Hoje</div>
+  <div id="chat">
+    <!-- Mensagens via JS -->
+  </div>
+</div>
+
+<audio id="notif" src="https://s3.fr-par.scw.cloud/typebot/public/typebots/rx0zcrlqkhifqajxuzr6txa9/blocks/ttfglhs9oks32ebn2ymqcrp1?v=1690899194685"></audio>
+<audio id="aud" src="https://minio-production-1fc3.up.railway.app/typebot/public/workspaces/cmfagbg830000ls4iz9r009n3/typebots/x1is357w46fqjn4bsifsvnv5/blocks/d6qa0170lzj5t59k07vxk113?v=1768159136517"></audio>
+
+<script>
+const S={NOME:'',NOME_DELE:''};
+const chat=document.getElementById('chat');
+const statusEl=document.getElementById('statusText');
+const AVATAR='https://minio-production-1fc3.up.railway.app/typebot/public/workspaces/cmfagbg830000ls4iz9r009n3/typebots/x1is357w46fqjn4bsifsvnv5/hostAvatar?v=1777254747316';
+
+function delay(ms){return new Promise(r=>setTimeout(r,ms));}
+function scrollB(){window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});}
+
+async function addBot(txt,ms=1500){
+  statusEl.innerText='digitando...';
+  await delay(ms);
+  statusEl.innerText='online';
+  const html=`<div class="msg-row bot">
+    <div class="bot-avatar"><img src="${AVATAR}"></div>
+    <div class="typebot-host-bubble">${txt.replace(/{{NOME}}/g,S.NOME).replace(/{{NOME DELE}}/g,S.NOME_DELE)}<span class="hora">${new Date().getHours()}:${new Date().getMinutes()}</span></div>
+  </div>`;
+  chat.insertAdjacentHTML('beforeend',html);
+  document.getElementById('notif').play();
+  scrollB();
+}
+
+async function addImage(src){
+  statusEl.innerText='enviando imagem...';
+  await delay(2000);
+  statusEl.innerText='online';
+  const html=`<div class="msg-row bot">
+    <div class="bot-avatar"><img src="${AVATAR}"></div>
+    <div class="img-host"><img src="${src}"></div>
+  </div>`;
+  chat.insertAdjacentHTML('beforeend',html);
+  scrollB();
+}
+
+async function addAudio(){
+  statusEl.innerText='gravando áudio...';
+  await delay(3000);
+  statusEl.innerText='online';
+  const html=`<div class="msg-row bot">
+    <div class="bot-avatar"><img src="${AVATAR}"></div>
+    <div class="audio-host">
+      <button class="play-btn" onclick="document.getElementById('aud').play()">▶</button>
+      <div class="audio-bar"><div class="audio-fill"></div></div>
+      <span class="hora">0:44</span>
+    </div>
+  </div>`;
+  chat.insertAdjacentHTML('beforeend',html);
+  scrollB();
+}
+
+function showChoices(opts,cb){
+  const div=document.createElement('div');
+  div.className='choices';
+  opts.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='choice-btn';
+    b.innerText=o;
+    b.onclick=()=>{div.remove();cb(o);};
+    div.appendChild(b);
+  });
+  chat.appendChild(div);
+  scrollB();
+}
+
+function showInput(ph,cb){
+  const html=`<div class="input-area"><input id="inp" class="input-box" placeholder="${ph}"><button class="send-btn" id="sbtn">➤</button></div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+  document.getElementById('sbtn').onclick=()=>{
+    const v=document.getElementById('inp').value;
+    if(v){document.querySelector('.input-area').remove();cb(v);}
+  };
+}
+
+async function flow(){
+  await addBot("Olá... estou me conectando com a sua vibração agora...");
+  await addBot("Você pensou em alguém que mudou o comportamento com você da noite para o dia?");
+  showChoices(["Sim, exatamente assim"], async()=>{
+    await addBot("Para rastrear essa energia, me diga seu nome completo.");
+    showInput("Seu nome...", async(v)=>{
+      S.NOME=v.split(' ')[0];
+      await addBot("Agora o nome dele (ou dela).");
+      showInput("Nome dele...", async(v2)=>{
+        S.NOME_DELE=v2.split(' ')[0];
+        
+        await addBot("{{NOME}}, a carta que saiu no meio bloqueando tudo é o **DIABO**.");
+        await addBot("Isso indica uma interferência densa de terceiros sobre a cabeça de {{NOME DELE}}.");
+        await addAudio();
+        
+        // --- NOVA SEÇÃO DE PROVA SOCIAL ---
+        await delay(2000);
+        await addBot("{{NOME}}, eu sei que parece pesado ouvir isso... mas você não está sozinha.");
+        await addBot("Quero te mostrar o que aconteceu com outras pessoas que também viram o 'Diabo' na mesa e decidiram abrir o Raio-X para descobrir a verdade:");
+        
+        //Prints sugeridos (Substitua os links abaixo)
+        await addImage("URL_DO_PRINT_CLAUDIA"); // Print da Cláudia sobre a rival
+        await addImage("URL_DO_PRINT_LETICIA"); // Print da Letícia sobre o quarto
+        
+        await addBot("Você quer saber EXATAMENTE quem ou o que é esse 'Diabo' que está atrapalhando vocês?");
+        showChoices(["Sim, eu preciso salvar essa relação"], async()=>{
+          await addBot("O Raio-X vai revelar a Identidade do Diabo, o Pensamento Secreto dele e o Calendário do Destino.");
+          await addBot("Tudo isso por apenas **R$ 35,00**.");
+          await addBot("Clique no botão abaixo para acessar agora:");
+          chat.insertAdjacentHTML('beforeend','<button class="choice-btn" style="width:100%" onclick="location.href=\'https://pay.kirvano.com/792b5ada-2456-41d0-95ed-5341fcc9049d\'">ACESSAR O RAIO-X DO VÍNCULO OCULTO</button>');
+        });
+      });
+    });
+  });
+}
+
+flow();
+</script>
+</body>
+</html>
