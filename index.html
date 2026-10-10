@@ -372,7 +372,7 @@ await addBot('Vou escrever seu nome para colocar na mesa e iniciar sua leitura..
 await delay(7000);
 await addBot('Só mais um segundo...',1500);
 await delay(4000);
-await addImage('https://img1.niftyimages.com/6wjh/5glp/_o2f?name={{NOME}}');
+await addImage('https://desenhocartas.com.br/img/serena-selfie.jpg?nome={{NOME}}');
 await delay(5000);
 await addBot('Agora, digite o nome completo dele (ou dela).<br><br>Preciso visualizar o rosto enquanto embaralho as cartas. ',2200);
 showInput('Nome completo dele/dela...','text',async(v2)=>{S.NOME_DELE=v2.trim().split(' ')[0];addUser(v2);
@@ -387,7 +387,7 @@ await addBot('Interessante... e preocupante. ',1500);
 await delay(2000);
 await addBot('Vou assinar seu nome e mandar a foto das cartas que você escolheu...',1800);
 await delay(5000);
-await addImage('https://img1.niftyimages.com/6wjh/repp/ep3f?name={{NOME}}&nome_dele={{NOME DELE}}');
+await addImage('https://desenhocartas.com.br/img/cartas-diabo.jpg?nome={{NOME}}&parceiro={{NOME DELE}}');
 await delay(4000);
 await addBot('{{NOME}}, olhe bem para essa combinação que saiu para você... ',1800);
 await delay(5000);
